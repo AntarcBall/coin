@@ -25,7 +25,7 @@ function edit(id,inner) {
 }
 buybtn.addEventListener('click',function () {//매수
     if(buycost<= money && buycost > 0){
-        edit('log',`${getInner('log')}(${time}|${y}) ${buystock}ATC를 ${buycost}달러로 사셨습니다.<br/>`)
+        edit('log',`${getInner('log')}(${time}|${y}) ${buystock}ATC를 10%수수료 적용되어 ${buycost}달러로 사셨습니다.<br/>`)
         state += buycost
         stock += buystock
         money -= buycost
@@ -59,7 +59,7 @@ function initBackground() {
 }
 function randomChange(){ //변동 
 var sign = intRand(0,1)*2 -1
-    ran =sign * intRand(1,10) *1.5
+    ran =sign * intRand(1,10) *1.7
     return ran //기본 변화
 }
 function chartDraw(){
@@ -112,7 +112,7 @@ setInterval(() => { //출력
     edit('state',`현재 손익: ${profit} $`)
     //알려주기
     buystock = Number(document.getElementById('howmany').value)//구매예정주
-    buycost = Math.floor(buystock*y)//구매예정가격
+    buycost = Math.floor(1.1*buystock*y)//구매예정가격
     if (buycost> money){
         document.getElementById('cost').style.color = 'red'
     }else document.getElementById('cost').style.color = 'black'
