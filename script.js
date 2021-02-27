@@ -53,7 +53,6 @@ function initBackground() {
 function randomChange(){ //변동 
 var sign = intRand(0,1)*2 -1
     ran =sign * intRand(1,10) *1.5
-    console.log(ran)
     return ran //기본 변화
 }
 function chartDraw(){
@@ -64,12 +63,25 @@ function chartDraw(){
         ctx.strokeStyle = '#FF0000'
     }else{
         ctx.strokeStyle = '#0000FF'
+        
     }   
     y += change //y이동
     ctx.lineTo(x,cvs.height-y) //선긋기
     ctx.stroke()
 }
 initBackground();
+function makeLable(number){
+    var number = document.createElement( 'div' );
+    var numberText = document.createTextNode(500-i*50);
+    number.appendChild( numberText );
+    document.body.appendChild( number );
+    number.style.position = 'relative'
+    number.style.top = i*28-650+'px'
+    number.style.left = '1210px'
+}
+for(var i=0;i<11;i++){
+    makeLable(i);
+}
 grid(cvs.width/(thickness+2),10);
 setInterval(() => {
     time ++;
@@ -79,7 +91,7 @@ setInterval(() => {
     x += thickness+2;//옆으로가기
     if (x>cvs.width){ //선넘으면 다시 복귀
         initBackground();
-        grid(cvs.width/(thickness+2),0);
+        grid(cvs.width/(thickness+2),10);
         x = 0
     }    
     ctx.closePath();   
