@@ -27,6 +27,7 @@ buybtn.addEventListener('click',function () {//매수
     }
 })
 sellbtn.addEventListener('click', function () { //매도
+    state = 0;
     money += stock * Math.floor(y)
     stock = 0
 })
