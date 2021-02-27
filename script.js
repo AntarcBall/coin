@@ -40,13 +40,21 @@ function grid(column,row) {
         ctx.lineTo(cvs.width/column * i,cvs.height)
         ctx.stroke();
     }
+    for(var i=0;i<row;i++){
+        ctx.moveTo(0,cvs.height/row * i)
+        ctx.lineTo(cvs.width,cvs.height/row * i)
+        ctx.stroke();
+    }
 }
 function initBackground() {
     ctx.fillStyle = '#FFFFFF'
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 function randomChange(){ //변동 
-    return intRand(-10,10) //기본 변화
+var sign = intRand(0,1)*2 -1
+    ran =sign * intRand(1,10) *1.5
+    console.log(ran)
+    return ran //기본 변화
 }
 function chartDraw(){
     ctx.moveTo(x,cvs.height-y)//위치로이동
@@ -62,7 +70,7 @@ function chartDraw(){
     ctx.stroke()
 }
 initBackground();
-grid(cvs.width/(thickness+2),0);
+grid(cvs.width/(thickness+2),10);
 setInterval(() => {
     time ++;
     ctx.beginPath(); //시작
@@ -75,8 +83,8 @@ setInterval(() => {
         x = 0
     }    
     ctx.closePath();   
-    edit('panel',`${y.toFixed(2)}$/ATD (time = ${time})`);
-    edit('stock',`매수할 가상화폐 수 (현재 ${stock}ATD 보유)` );
+    edit('panel',`${y.toFixed(2)}$/ATC (time = ${time})`);
+    edit('stock',`매수할 가상화폐 수 (현재 ${stock}ATC 보유)` );
     edit('cost','매수가격: '+buycost+'$ 현재 소유:'+money+'$')
     let profit = y*stock - state
     edit('state',`현재 손익: ${profit} $`)
