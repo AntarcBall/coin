@@ -5,13 +5,18 @@ let buystock = 0;
 var stock = 0;
 var time = 0;
 var state = 0;
+let profit = 0;
 const thickness = 6;
 cvs = document.getElementById('canvas');//세팅
 ctx = cvs.getContext('2d');
 buybtn = document.getElementById('buybtn');
 sellbtn = document.getElementById('sellbtn')
+
 x=0;y=cvs.height/2//캔버스 관련 세팅
 //함수 선언, 클릭 이벤트 정의
+function getInner(id){
+    return document.getElementById(id).innerHTML;
+}
 function intRand(a,b){
     return Math.floor((Math.random() * (b-a+1)) + a);
 }
@@ -19,16 +24,18 @@ function edit(id,inner) {
     document.getElementById(id).innerHTML = inner;
 }
 buybtn.addEventListener('click',function () {//매수
-    if(buycost<= money){
-        console.log(`${y}$짜리주식 ${buystock}주를 ${buycost}달러로 사셨습니다.`)
+    if(buycost<= money && buycost > 0){
+        edit('log',`${getInner('log')}(${time}|${y}) ${buystock}ATC를 ${buycost}달러로 사셨습니다.<br/>`)
         state += buycost
         stock += buystock
         money -= buycost
     }
 })
 sellbtn.addEventListener('click', function () { //매도
+    sellcost = stock * Math.floor(y)
+    edit('log',`${getInner('log')}(${time}|${y}) ${stock}ATC를 총 ${sellcost}달러로 매도했습니다. 수익:${profit}$!<br/>`)
     state = 0;
-    money += stock * Math.floor(y)
+    money += sellcost
     stock = 0
 })
 
@@ -76,7 +83,7 @@ function makeLable(number){
     number.appendChild( numberText );
     document.body.appendChild( number );
     number.style.position = 'relative'
-    number.style.top = i*28-650+'px'
+    number.style.top = i*28-780+'px'
     number.style.left = '1210px'
 }
 for(var i=0;i<11;i++){
@@ -95,10 +102,13 @@ setInterval(() => {
         x = 0
     }    
     ctx.closePath();   
+    
+}, 2000);
+setInterval(() => { //출력
+    profit = Math.floor (y*stock) - state
     edit('panel',`${y.toFixed(2)}$/ATC (time = ${time})`);
     edit('stock',`매수할 가상화폐 수 (현재 ${stock}ATC 보유)` );
     edit('cost','매수가격: '+buycost+'$ 현재 소유:'+money+'$')
-    let profit = y*stock - state
     edit('state',`현재 손익: ${profit} $`)
     //알려주기
     buystock = Number(document.getElementById('howmany').value)//구매예정주
@@ -109,4 +119,4 @@ setInterval(() => {
     if (profit> 0){
         document.getElementById('state').style.color = 'red'
     }else document.getElementById('state').style.color = 'blue'
-}, 200);
+}, 100);

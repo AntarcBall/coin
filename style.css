@@ -3,3 +3,16 @@
     border: black 1px solid;
     width: 200px;
 }
+
+canvas{
+    margin: 200 0;
+}
+
+#log{
+    border: black solid 1px;
+    width: 800px;
+    height: 120px;
+    position: relative;
+    left: 300px;
+    bottom: 120px;
+}
