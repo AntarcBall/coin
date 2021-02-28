@@ -1,18 +1,38 @@
 
 .box{
-    border: black 1px solid;
+    font-weight: bold;
     width: 200px;
 }
 
 canvas{
     margin: 200 0;
+    position: relative;
+    left: 150px;
 }
-
+#change{
+    position: relative;
+    bottom: 770px;
+    font-size: 20px;
+    width: 120px;
+    text-align: right;
+}
+#panel{
+    font-weight: bold;
+    font-size: 42px;
+    position: relative;
+    bottom: 770px;
+    color: red;
+}
 #log{
     border: black solid 1px;
-    width: 800px;
+    width: 700px;
     height: 120px;
     position: relative;
-    left: 300px;
+    left: 500px;
     bottom: 120px;
+}
+
+#howmany{
+    width: 100px;
+    text-align: end;
 }

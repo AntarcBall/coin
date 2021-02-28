@@ -9,16 +9,18 @@
 </head>
 <body>
     <div class="box"  >ATC</div><div class="box" >엔탈코인/달러</div>
-    <canvas style="border: 1px solid;"id='canvas' width="1200" height="500"></canvas>
-    <div id='panel'>-</div>
-    <divid='stock'></divid=>
-    <div id='stock'>매수할 화폐 수</div><input id="howmany" placeholder="입력" maxlength="3" type="number">
+    <canvas style="border: 1px solid;"id='canvas' width="1000" height="500"></canvas>
+    <div id='stock'></div>
+    <div id='stock'>매수할 화폐 수</div>
+    <input id="howmany" value='1' placeholder="입력" maxlength="3" type="number"> ATC
     <button id="buybtn">매수</button>
     <button id="sellbtn">매도</button>
     <div id='cost'></div>
     <div id='state'></div>
     <button id='zoomOut'>줌 아웃</button>
-    <div style="overflow:auto;"  id="log"></div>
+    <div style="overflow:scroll;"  id="log"></div>
+    <div id='panel'>-</div>
+    <div id="change">0</div>
     <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
