@@ -127,7 +127,7 @@ setInterval(() => { //차트 그리기
     chartDraw();
     ctx.closePath();
     
-}, 200);
+}, 3000);
 setInterval(() => { //출력
     sellcost =  Math.floor(transtock *y)
     transtock = Number(document.getElementById('howmany').value)//구매예정량 
