@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet" type="text/css">
-    <title>coin</title>
     <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
@@ -23,6 +22,7 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
+    <title>coin</title>
 </head>
 <body>
     <div class="box"  >ATC</div><div class="box" >엔탈코인/달러</div>
@@ -32,9 +32,11 @@
     <input id="howmany" value='1' placeholder="입력" maxlength="3" type="number"> ATC
     <button id="buybtn">매수</button>
     <button id="sellbtn">매도</button>
+    <button id="sellallbtn">전체매도</button>
     <div id='cost'></div>
     <div id='state'></div>
-    <button id='zoomOut'>줌 아웃</button>
+    <button id='up'>↑</button>
+    <button id='down'>↓</button>
     <div style="overflow:scroll;"  id="log"></div>
     <div id='panel'>-</div>
     <div id="change">0</div>
