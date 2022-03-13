@@ -82,7 +82,7 @@ function initBackground() {
 }
 function randomChange(){ //변동 
 var sign = intRand(0,1)*2 -1
-    ran =sign * intRand(3,20)
+    ran =sign * intRand(3,25)
     return ran //기본 변화
 }
 function chartDraw(){
@@ -127,7 +127,7 @@ setInterval(() => { //차트 그리기
     chartDraw();
     ctx.closePath();
     
-}, 3000);
+}, 2100);
 setInterval(() => { //출력
     sellcost =  Math.floor(transtock *y)
     transtock = Number(document.getElementById('howmany').value)//구매예정량 
