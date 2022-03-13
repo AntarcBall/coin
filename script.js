@@ -1,4 +1,4 @@
-
+alert('ㄱㄱ')
 // 변수,DOM객체선언
 var money = 10000
 var buycost = 0;
@@ -9,7 +9,7 @@ var stock = 0;
 let time = 1;
 var state = 0;
 let profit = 0;
-const fees = 0.05;
+const fees = 0.01;
 const thickness = 6;
 let change = 0;
 var watchY = 0;
